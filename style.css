@@ -14,3 +14,32 @@
 @media(max-width:760px){.container{width:calc(100% - 34px)}.section{padding:70px 0}.nav-wrap{min-height:72px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:#061633;padding:12px 22px 20px;align-items:stretch;flex-direction:column;gap:0;border-top:1px solid #ffffff16}.nav-links.open{display:flex}.nav-links a{padding:12px 7px;font-size:.9rem}.nav-links .nav-cta{text-align:center;margin-top:8px}.hero-layout{grid-template-columns:1fr;padding-top:60px;padding-bottom:48px;gap:42px}.hero h1{font-size:clamp(2.7rem,9vw,4rem)}.hero-panel{max-width:400px}.ribbon-grid{grid-template-columns:1fr 1fr;padding:20px 0}.ribbon-grid span{font-size:.75rem}.services-grid,.portfolio-grid{grid-template-columns:repeat(2,1fr)}.service-card{padding:22px}.service-card p{min-height:0}.about-grid,.support-grid,.feedback-grid,.contact-grid{grid-template-columns:1fr;gap:35px}.profile-card{max-width:430px}.profile-image-wrap{height:360px}.privacy-layout{grid-template-columns:55px 1fr;gap:18px}.privacy-symbol{width:52px;height:52px}.closing-inner{align-items:flex-start;flex-direction:column}.footer-top{align-items:flex-start;flex-direction:column}.footer-bottom{flex-direction:column;gap:6px}}
 @media(max-width:480px){.container{width:calc(100% - 28px)}.brand-logo{width:42px;height:42px}.brand-copy strong{font-size:1rem}.brand-copy small{font-size:.5rem}.hero h1{font-size:2.65rem;letter-spacing:-1.2px}.hero-actions{flex-direction:column}.hero-actions .button{width:100%}.hero-points{flex-direction:column;gap:6px}.panel-logo{font-size:6.5rem}.services-grid,.portfolio-grid{grid-template-columns:1fr}.work-art{min-height:250px}.form-row{grid-template-columns:1fr;gap:0}.feedback-form,.contact-form{padding:22px 17px}.privacy-layout{grid-template-columns:1fr}.privacy-symbol{margin-bottom:2px}.profile-image-wrap{height:300px}.support-actions{flex-direction:column}.support-actions .button{width:100%}.footer-links{gap:14px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* ALURA PWA installation button */
+
+.install-app-button {
+  appearance: none;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  background: #07172f;
+  color: #f4d675;
+  font: inherit;
+  font-weight: 700;
+  padding: 10px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.install-app-button:hover {
+  background: #12305a;
+}
+
+.install-app-button:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 3px;
+}
+
+.install-app-button:disabled {
+  opacity: 0.7;
+  cursor: default;
+}

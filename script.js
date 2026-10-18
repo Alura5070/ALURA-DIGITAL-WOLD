@@ -98,3 +98,61 @@ if (feedbackForm) {
     window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
+
+/* ALURA Digital Solutions - PWA Service Worker */
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("./service-worker.js")
+      .then(() => {
+        console.log("ALURA app service worker registered successfully.");
+      })
+      .catch((error) => {
+        console.error("ALURA service worker registration failed:", error);
+      });
+  });
+}
+
+/* ALURA PWA installation */
+
+let deferredInstallPrompt = null;
+
+const installAppButton = document.getElementById("installAppButton");
+
+if (installAppButton) {
+  installAppButton.addEventListener("click", async () => {
+    if (deferredInstallPrompt) {
+      deferredInstallPrompt.prompt();
+
+      const choice = await deferredInstallPrompt.userChoice;
+
+      if (choice.outcome === "accepted") {
+        installAppButton.textContent = "Installing ALURA...";
+      }
+
+      deferredInstallPrompt = null;
+      installAppButton.hidden = true;
+    } else {
+      alert(
+        "To install ALURA Digital Solutions:\n\n" +
+        "On Chrome or Edge, open the browser menu and look for " +
+        "'Install page as app' or 'Install ALURA Digital Solutions'.\n\n" +
+        "On iPhone or iPad, open this website in Safari, tap Share, " +
+        "then choose 'Add to Home Screen' if available."
+      );
+    }
+  });
+
+  window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    installAppButton.hidden = false;
+    installAppButton.textContent = "Install ALURA App";
+  });
+
+  window.addEventListener("appinstalled", () => {
+    installAppButton.textContent = "ALURA Installed";
+    installAppButton.disabled = true;
+  });
+}
